@@ -46,10 +46,10 @@ class LidarSensors(object):
     """
     Class to encapsulate a LidarSensor and its methods to update rangeFilter and TemporalFilter
     """
+    min = 0.03
+    max = 50.0
 
     def __init__(self, num_of_prev_scans):
-        self.min = 0.03
-        self.max = 50.0
         # Setting Default number of scans to 0, otherwise what user passed as param.
         if num_of_prev_scans < 0:
             self.num_of_prev_scans = 0
@@ -62,17 +62,18 @@ class LidarSensors(object):
             Return the median of all elements at a specific index of current and finite number of
             previous scans
         """
-        scans_at_indexes = []
+        all_scans_at_indexes = []
         filter_output = []
         num_of_elements_in_each_scan = len(self.list_of_scans[0])
-        for i in range(0, num_of_elements_in_each_scan):
-            for j in range(0, len(self.list_of_scans)):
-                scans_at_indexes.append(self.list_of_scans[j][i])
-            array_of_scans = np.array(scans_at_indexes)
-            # append to list, the median of all elements at index i
+        for distance in range(0, num_of_elements_in_each_scan):
+            for scan_at_index in range(0, len(self.list_of_scans)):
+                all_scans_at_indexes.append(self.list_of_scans[scan_at_index][distance])
+            array_of_scans = np.array(all_scans_at_indexes)
+            # append to list, the median of all elements at index (scan_at_index), rounded to 2 digits after
+            # decimal for readability purposes
             filter_output.append(round(np.median(array_of_scans), 2))
             # empty the list to get median of elements at next index
-            scans_at_indexes = []
+            all_scans_at_indexes = []
 
         return filter_output
 
@@ -110,16 +111,3 @@ class LidarSensors(object):
             print "Please pass valid list as in input"
             return None
 
-
-INPUT_SCAN_RANGE_FILTER = [0.01, 5, 10.4, 10, 48, 34.6, 57.3, 50]
-INPUT_TEMPORAL_FILTER = [[0., 1., 2., 1., 3., 6], [1., 5., 7., 1., 3., 9],
-                         [2., 3., 4., 1., 0., 10], [3., 3., 3., 1., 3., 34],
-                         [10., 2., 4., 0., 0., 12], [0.01, 5, 10.4, 10, 48, 10],
-                         [1., 5., 7., 1., 3., 9]]
-
-LS = LidarSensors(4)
-print ("Input to range filter: ", INPUT_SCAN_RANGE_FILTER)
-print ("O/P from range filter: ", LS.update_range_filter(INPUT_SCAN_RANGE_FILTER))
-for k, scan_tf in enumerate(INPUT_TEMPORAL_FILTER):
-    print("Input Temporal Filter number:", scan_tf, "O/P Temporal Filter: ",
-          LS.update_temporal_filter(INPUT_TEMPORAL_FILTER[k]))

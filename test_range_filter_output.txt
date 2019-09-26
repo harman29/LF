@@ -1,0 +1,42 @@
+Launching pytest with arguments C:/Users/harmandeeps/PycharmProjects/LidarFilters/test_range_filter.py in C:\Users\harmandeeps\PycharmProjects\LidarFilters
+============================= test session starts =============================
+platform win32 -- Python 2.7.15, pytest-4.6.5, py-1.8.0, pluggy-0.13.0
+rootdir: C:\Users\harmandeeps\PycharmProjects\LidarFilterscollected 5 items
+
+test_range_filter.py .
+
+Start New Test - test_range_filter_valid_input
+('INPUT SCAN: ', [0.01, 5, 10.4, 10, 48, 34.6, 57.3, 50])
+('Range Filter Output Scan', [0.03, 5, 10.4, 10, 48, 34.6, 50.0, 50])
+END Test
+.
+
+Start New Test - test_range_filter_negativeInput
+('INPUT SCAN: ', [0.01, -5, 10.4, 10, -100, 34.6, 57.3, 2000])
+('Range Filter Output Scan', [0.03, 0.03, 10.4, 10, 0.03, 34.6, 50.0, 50.0])
+END Test
+.
+
+Start New Test - test_range_filter_nullInput
+('INPUT SCAN: ', [])
+('Range Filter Output Scan', [])
+END Test
+.
+
+Start New Test - test_range_filter_invalid_input_str
+('INPUT SCAN: ', 'SomeInvalidString')
+Please pass valid list as in input
+('Range Filter Output Scan', None)
+END Test
+.
+
+Start New Test - test_range_filter_invalidinput_Int
+('INPUT SCAN: ', 10)
+Please pass valid list as in input
+('Range Filter Output Scan', None)
+END Test
+                                               [100%]
+
+========================== 5 passed in 0.04 seconds ===========================
+
+Process finished with exit code 0

@@ -79,7 +79,7 @@
 	No config file found, using default configuration  
     Process finished with exit code 0
 
-## Misc Note:
+## Misc Notes:
     ▪ Tests were developed in pycharm on windows, test output attached is also from Windows run.
     ▪ All packages were installed in pycharm using pycharm IDE
     ▪ It was made sure that tests are also able to run on Linux platform, instructions for installating

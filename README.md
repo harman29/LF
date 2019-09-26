@@ -1,12 +1,13 @@
 
 ## 1. Installation instructions
-#### 1.a. Virtual Environment
+#### 1.a. Virtual Environment (Optional)
     ▪ Create and activate a virtual environment.
     ▪ Install python 2.7 and pip inside virtual environment.
 		
 #### 1.b. Clone the repo
     ▪ git clone https://github.com/harman29/LF.git
-#### 1.c. After you clone, you will see the following files.
+    
+#### 1.c. After you clone, you will see the following files in LF folder.
 	▪ lidar_filters.py
 	▪ test_range_filter.py
 	▪ test_temporal_filter.py
@@ -18,14 +19,13 @@
 	▪ requirements.txt
 		
 #### 1.d Need to install numpy package to calculate the median.
-    ▪ pip install numpy
+    ▪ sudo pip install numpy
 		
 #### 1.e Need to install pytest to run the tests
-    ▪ pip install pytest
+    ▪ sudo apt install python-pytest
 		
 ## 2. Run tests
 ▪ sudo pytest -v test_range_filter.py(5 tests).  
-▪ sudo pytest -v test_range_filter.py(5 tests)  
 ▪ sudo pytest -v test_temporal_filter.py(5 tests)  
 ▪ sudo pytest -v test_range_temporal_filters.py(1 test)  
     - test_range_temporal_filters combines the testing of filters. It sends an input to range filter
@@ -78,5 +78,10 @@
 	Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
 	No config file found, using default configuration  
     Process finished with exit code 0
-  
-#### P.S All the project was developed in pycharm in Windows, including the tests and check for lint errors after which it was also tested to work on Linux machines.
+
+## Misc Note:
+    ▪ Tests were developed in pycharm on windows, test output attached is also from Windows run.
+    ▪ All packages were installed in pycharm using pycharm IDE
+    ▪ It was made sure that tests are also able to run on Linux platform, instructions for installating
+     packages are based on Linux(Ubuntu 18.04)
+    ▪ requirements.txt was generating using pip freeze

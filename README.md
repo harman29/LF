@@ -11,6 +11,8 @@
 	▪ test_range_filter.py
 	▪ test_temporal_filter.py
 	▪ test_range_temporal_filters.py
+	▪ test_range_filter_output.txt
+	▪ test_temporal_filter_output.txt
 	▪ conftest.py
 	▪ README.md
 	▪ requirements.txt
